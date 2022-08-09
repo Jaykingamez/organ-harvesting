@@ -29,6 +29,7 @@
   "devDependencies": {
     "@babel/core": "^7.17.10",
     "@babel/preset-env": "^7.17.10",
+    "@types/twine-sugarcube": "^2.36.2",
     "babel-loader": "^8.2.5",
     "babel-preset-minify": "^0.5.1",
     "chokidar": "^3.5.3",

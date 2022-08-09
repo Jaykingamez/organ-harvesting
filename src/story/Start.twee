@@ -2,7 +2,7 @@
 Organ Harvesting
 
 :: Start
-<<set $player = "player">>
+<<set $player = new setup.Player(name="",race="",gender="")>>
 
 An endless vortex of eyes staring at me appeared before me. Before I could even let out a shout, I was swallowed by the endlessly writhing doorway. 
 
@@ -19,29 +19,29 @@ She got up from her seat and took several steps toward me. I quickly backed off 
 Bearing her cold gaze upon me, she asked, @@.yukari;"What is your name?"@@
 
 
-@@.center;Name <<textbox "$player" $player>>@@
+@@.center;Name <<textbox "$player.name" "player">>@@
 
 @@.center;[[Continue|Introduction]]@@
 
 :: Introduction
 <<set $genderCollection = ["male", "female", "others"]>>
 
-@@.yukari;"Doctor $player?"@@ the woman asked. She took a couple of steps back, and began circling me. 
+@@.yukari;"Doctor $player.name?"@@ the woman asked. She took a couple of steps back, and began circling me. 
 
 She kept at a distance of about two metres, her heels clacking against the ground every second or so. 
 
 Seeing that she was momentarily distracted, I checked on myself. 
 
 @@.center;
-<<listbox "$gender">>
+<<listbox "$player.gender">>
 	[<<optionsfrom $genderCollection>> …]
 <</listbox>>
 @@
 
-<<if $gender === "male">>
+<<if $player.gender === "male">>
     You're a man and you're not afraid to admit it!
-<<elseif $gender === "female">>
+<<elseif $player.gender === "female">>
     You're a woman and you're not afraid to admit it!
 <<else>>
-    You are a... a... What's your gender? <<textbox "$gender" $gender>> 
+    You are a... a... What's your gender? <<textbox "$player.gender" "attack helicopter">> 
 <</if>>
