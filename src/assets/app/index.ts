@@ -1,6 +1,5 @@
 import "./styles/index.scss";
-import "globals.d.ts";
-import "character.ts";
+import {Player} from './character'
 
 
-//setup.player = Player;
+setup.Player = Player;
