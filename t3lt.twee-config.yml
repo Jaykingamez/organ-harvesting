@@ -1,0 +1,8 @@
+sugarcube-2:
+    macros:
+        liveblock:
+            name: liveblock
+            container: true
+        update:
+            name: update
+            container: false
