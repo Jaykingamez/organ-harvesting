@@ -11,7 +11,7 @@ class Npc implements Character{
     private _race!: string;
     private _gender!: string;
 
-    constructor({name = "", race = "", gender = ""}: Character){
+    constructor({name, race, gender}: Character){
         this.name = name;
         this.race = race;
         this.gender = gender;
@@ -52,7 +52,7 @@ class Npc implements Character{
 
 }
 
-export class Player extends Npc {
+class Player extends Npc {
 
     clone(){
         return new Player(this);
@@ -68,3 +68,5 @@ export class Player extends Npc {
 	    return JSON.reviveWrapper('new setup.Player($ReviveData$)', clone(this));
     }
 }
+
+export {}
