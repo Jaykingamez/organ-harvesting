@@ -57,5 +57,8 @@
     "webpack": "^5.72.0",
     "webpack-cli": "^4.9.2",
     "webpack-concat-files-plugin": "^0.5.2"
+  },
+  "dependencies": {
+    "unique-names-generator": "^4.7.1"
   }
 }
