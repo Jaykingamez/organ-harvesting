@@ -36,12 +36,30 @@ Seeing that she was momentarily distracted, I checked on myself.
 <<listbox "$player.gender">>
 	[<<optionsfrom $genderCollection>> …]
 <</listbox>>
+
+<<liveblock>>
+<<button "Confirm">>
+    <<set _confirm = true>>
+    <<update>>
+<</button>>
+<<if _confirm === true >>
+    <<if $player.gender === "male">>
+        You're a man and you're not afraid to admit it!"
+    <<elseif $player.gender === "female">>
+        You're a woman and you're not afraid to admit it!
+    <<else>>
+        You are a... a... What's your gender? <<textbox "$player.gender" "attack helicopter">> 
+    <</if>>
+    [[Continue|YukariIntro]]
+<</if>>     
+<</liveblock>>
 @@
 
-<<if $player.gender === "male">>
-    You're a man and you're not afraid to admit it!
-<<elseif $player.gender === "female">>
-    You're a woman and you're not afraid to admit it!
-<<else>>
-    You are a... a... What's your gender? <<textbox "$player.gender" "attack helicopter">> 
-<</if>>
+:: YukariIntro
+
+
+
+        
+
+
+
