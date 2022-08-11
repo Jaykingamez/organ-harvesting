@@ -1,0 +1,12 @@
+:: Widget [widget]
+<<widget "pronoun">>\
+    <<nobr>>
+	<<if $player.gender eq "male">>
+		he
+	<<elseif $player.gender eq "female">>
+		she
+	<<else>>
+		$player.gender
+	<</if>>
+    <</nobr>>
+\<</widget>>
