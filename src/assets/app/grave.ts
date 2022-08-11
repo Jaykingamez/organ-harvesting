@@ -95,7 +95,7 @@ class Grave implements Tomb {
 
     private static get nameArray(): string[] {
         if (Grave._nameArray === undefined) {
-            Grave._nameArray = readFileArray("../../../data/grave/gave_name.txt");
+            Grave._nameArray = readFileArray("../../../../data/grave/grave_name.txt");
         }
         return Grave._nameArray;
     }
@@ -105,7 +105,7 @@ class Grave implements Tomb {
 
     private static get decorationArray(): string[] {
         if (Grave._decorationArray === undefined) {
-            Grave._decorationArray = readFileArray("../../../data/grave/gave_decoration.txt");
+            Grave._decorationArray = readFileArray("../../../../data/grave/grave_decoration.txt");
         }
         return Grave._decorationArray;
     }
@@ -115,7 +115,7 @@ class Grave implements Tomb {
 
     private static get featureArray(): string[] {
         if (Grave._featureArray === undefined) {
-            Grave._featureArray = readFileArray("../../../data/grave/gave_feature.txt");
+            Grave._featureArray = readFileArray("../../../../data/grave/grave_feature.txt");
         }
         return Grave._featureArray;
     }
