@@ -6,3 +6,6 @@ sugarcube-2:
         update:
             name: update
             container: false
+        pronoun:
+            name: pronoun
+            container: false
