@@ -19,9 +19,10 @@ She got up from her seat and took several steps toward me. I quickly backed off 
 Bearing her cold gaze upon me, she asked, @@.yukari;"What is your name?"@@
 
 
-@@.center;Name <<textbox "$player.name" "player">>@@
+@@.center;Name <<textbox "$player.name" "player">>
 
-@@.center;[[Continue|Introduction]]@@
+[[Continue|Introduction]]
+@@
 
 :: Introduction
 <<set $genderCollection = ["male", "female", "others"]>>
@@ -56,6 +57,35 @@ Seeing that she was momentarily distracted, I checked on myself.
 @@
 
 :: YukariIntro
+The woman stopped, leaned over my back and took a sniff. I could feel the increased warmth from her as her cold hands clasped themselves on my shoulder.
+A short sniff, probably around 5 seconds, yet it felt like an eternity as my heart rate sped up. 
+
+She clasped her nose and walked backwards away from me. @@.yukari; You smell disgusting.@@
+
+"Me?" I uttered, as she fanned herself while pinching her nose. 
+
+@@.yukari;I doubt any Youkai would want to eat you.@@
+
+"..." Knowing better, I kept silent. I wanted to know more about the situation I'm in, but that could wait. 
+
+@@.yukari;Since you got two hands and legs, it would be a waste to just let you go.@@
+
+She raised a hand and snapped her fingers. That same void that brought me into this room reappeared, and I swallowed into the murky abyss, with those eyes
+staring at me as my consciousness melted in the void. 
+
+[[Continue|Graveyard]]
+
+:: Graveyard
+@@.yoshika;Who dares to tresspass on Mistress Seiga's property! Face my wrath! Blood for the Blood God! Skulls for the skull throne!@@
+
+@@.yukari;Settle down Yoshika. I'm just here for a little visit.@@
+
+Disoriented, I slowly oriented myself and saw that blond woman petting the head of a zombie.
+
+@@.yoshika;Who's that? Is he my supper?@@
+
+@@.yukari;Trust me Yoshika, <<pronoun>> is not delicious@@
+
 
 
 
