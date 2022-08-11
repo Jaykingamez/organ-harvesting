@@ -1,6 +1,7 @@
 {
   "include": [
-    "src/assets/app"
+    "src/assets/app", 
+    "src/assets/vendor"
   ],
   "exclude": [
     ".build",
