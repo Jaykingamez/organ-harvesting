@@ -120,13 +120,41 @@ Resting her chin against her hands as her lower half sat in the void, she smiled
 <<return>>
 
 :: Graveyard Digging
+<<set _graveNumber = 12>>
+<<set $graveArray = []>>
 
-<<set $grave = setup.Grave.generator()>>
-<<= $grave>>
-<<= $grave.name>>
-<<= $grave.decoration>>
-<<= $grave.engraving>>
-<<= $grave.feature>>
+
+<<nobr>>
+	<<set _grid = '<div class="grid-container">'>>
+	<<for _i = 0; _i < _graveNumber; _i++>>
+            <<set _grid += '<div class="grid-item">'>>
+            <<set _grave = setup.Grave.generator()>>
+            <<run $graveArray.pushUnique(_grave)>>
+			<<set _grid += '<<link "' + _grave.name + '" "Grave">>'>>
+            <<set _grid += '<<set $selectedIndex = "' + _i + '">>'>>
+            <<set _grid += '<</link>>'>>
+            <<set _grid += '</div>'>>
+	<</for>>
+	<<set _grid += '</div>'>>
+<</nobr>>
+
+_grid
+
+:: Grave
+@@.center;
+<<set $selectedGrave = $graveArray[$selectedIndex]>>
+
+Here lies $selectedGrave.name
+
+Beside the grave is a $selectedGrave.decoration
+
+Engraved on it is $selectedGrave.engraving
+
+Noticeably, the soil is $selectedGrave.feature
+
+@@
+
+<<return>>
 
 
 
