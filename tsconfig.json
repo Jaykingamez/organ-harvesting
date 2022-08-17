@@ -1,6 +1,6 @@
 {
   "include": [
-    "src/**/*"
+    "src/assets/app"
   ],
   "exclude": [
     ".build",
@@ -16,11 +16,11 @@
 		"module": "ES2015",
 		"target": "ES2015",
         "allowJs": true,
-    "moduleResolution": "node",
-    "rootDir": "src/assets/app",
-		"lib": [
-			"ES2015",
-			"DOM"
-		],
+        "moduleResolution": "node",
+        "rootDir": "src/assets/app",
+            "lib": [
+                "ES2015",
+                "DOM"
+            ],
   }
 }

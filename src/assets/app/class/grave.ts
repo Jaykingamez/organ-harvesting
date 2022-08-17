@@ -1,5 +1,5 @@
-import { uniqueNamesGenerator, adjectives, countries, names } from 'unique-names-generator';
-import {readFileArray} from '../helper/file-handler';
+import { uniqueNamesGenerator, adjectives, countries, names, languages } from 'unique-names-generator';
+import graveData from '../data/grave/graveData';
 
 export interface Tomb {
     name: string;   // Tomb 1, 2, 3?
@@ -50,8 +50,8 @@ export class Grave implements Tomb {
 
     private static tombEngravingGenerator(){
         const tombEngraving: string = uniqueNamesGenerator({
-            dictionaries: [adjectives, countries, names],
-            length: 2,
+            dictionaries: [adjectives, countries, languages, names],
+            length: 4,
             separator: ' '
           });
         return tombEngraving;
@@ -95,7 +95,7 @@ export class Grave implements Tomb {
 
     private static get nameArray(): string[] {
         if (Grave._nameArray === undefined) {
-            Grave._nameArray = readFileArray("../data/grave/grave_name.txt");
+            Grave._nameArray = graveData.graveName;
         }
         return Grave._nameArray;
     }
@@ -105,7 +105,7 @@ export class Grave implements Tomb {
 
     private static get decorationArray(): string[] {
         if (Grave._decorationArray === undefined) {
-            Grave._decorationArray = readFileArray("../data/grave/grave_decoration.txt");
+            Grave._decorationArray = graveData.graveDecoration;
         }
         return Grave._decorationArray;
     }
@@ -115,7 +115,7 @@ export class Grave implements Tomb {
 
     private static get featureArray(): string[] {
         if (Grave._featureArray === undefined) {
-            Grave._featureArray = readFileArray("../data/grave/grave_feature.txt");
+            Grave._featureArray = graveData.graveFeature;
         }
         return Grave._featureArray;
     }

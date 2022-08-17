@@ -121,6 +121,15 @@ Resting her chin against her hands as her lower half sat in the void, she smiled
 
 :: Graveyard Digging
 
+<<set $grave = setup.Grave.generator()>>
+<<= $grave>>
+<<= $grave.name>>
+<<= $grave.decoration>>
+<<= $grave.engraving>>
+<<= $grave.feature>>
+
+
+
 
 
         
