@@ -4,19 +4,19 @@ Organ Harvesting
 :: Start
 <<set $player = new setup.Player({name:"", race:"", gender:""})>>
 
-An endless vortex of eyes staring at me appeared before me. Before I could even let out a shout, I was swallowed by the endlessly writhing doorway. 
+An endless vortex of eyes staring appeared before you. Before you could even let out a shout, you were swallowed by the endlessly writhing doorway. 
 
-That was the last thing I remembered.
+That was the last thing you remembered.
 
-By the time I regained consciousness, a blonde woman dressed in a strange attire had sat before me. She crossed her legs, stifling a yawn as she gazed down before me. 
+By the time you regained consciousness, a blonde woman dressed in a strange attire had sat before you. She crossed her legs, stifling a yawn as she gazed down before your form. 
 
-I could instantly tell this was no ordinary lady. The demeanour of a ruler with eyes that seemed to suck one into the endless stream of time. 
+You could instantly tell this was no ordinary lady. The demeanour of a ruler with eyes that seemed to suck one into the endless stream of time. 
 
-As my mouth hung agape, she spoke up, @@.yukari;"You're awake? Good."@@
+As your mouth hung agape, she spoke up, @@.yukari;"You're awake? Good."@@
 
-She got up from her seat and took several steps toward me. I quickly backed off from her; however, no matter how much I kicked against the ground, my body refused to move. I could only watch as she came closer and closer. 
+She got up from her seat and took several steps towards you. You quickly backed off from her; however, no matter how much you kicked against the ground, your body refused to move. I could only watch as she came closer and closer. 
 
-Bearing her cold gaze upon me, she asked, @@.yukari;"What is your name?"@@
+Bearing her cold gaze upon you, she asked, @@.yukari;"What is your name?"@@
 
 
 @@.center;Name <<textbox "$player.name" "player">>
@@ -27,11 +27,11 @@ Bearing her cold gaze upon me, she asked, @@.yukari;"What is your name?"@@
 :: Introduction
 <<set $genderCollection = ["male", "female", "others"]>>
 
-@@.yukari;"$player.name huh?"@@ the woman asked. She took a couple of steps back, and began circling me. 
+@@.yukari;"$player.name huh?"@@ the woman asked. She took a couple of steps back, and began circling you. 
 
 She kept at a distance of about two metres, her heels clacking against the ground every second or so. 
 
-Seeing that she was momentarily distracted, I checked on myself. 
+Seeing that she was momentarily distracted, you began checking on yourself. 
 
 @@.center;
 <<listbox "$player.gender">>
@@ -57,21 +57,23 @@ Seeing that she was momentarily distracted, I checked on myself.
 @@
 
 :: YukariIntro
-The woman stopped, leaned over my back and took a sniff. I could feel the increased warmth from her as her cold hands clasped themselves on my shoulder.
-A short sniff, probably around 5 seconds, yet it felt like an eternity as my heart rate sped up. 
+<<set $firstDig = true>>
+
+The woman stopped, leaned over my back and took a sniff. You could feel the increased warmth from her as her cold hands clasped themselves on your shoulder.
+A short sniff, probably around 5 seconds, yet it felt like an eternity as your heart rate sped up. 
 
 She clasped her nose and walked backwards away from me. @@.yukari; You smell disgusting.@@
 
-"Me?" I uttered, as she fanned herself while pinching her nose. 
+"Me?" You uttered, as she fanned herself while pinching her nose. 
 
 @@.yukari;I doubt any Youkai would want to eat you.@@
 
-"..." Knowing better, I kept silent. I wanted to know more about the situation I'm in, but that could wait. 
+"..." Knowing better, you kept silent. You wanted to know more about the situation your in, but that could wait. 
 
 @@.yukari;Since you got two hands and legs, it would be a waste to just let you go.@@
 
 She raised a hand and snapped her fingers. That same void that brought me into this room reappeared, \
-and I swallowed into the murky abyss, with those eyes staring at me as my consciousness melted in the void. 
+and you swallowed into the murky abyss, with those eyes staring at you as your consciousness melted in the void. 
 
 [[Continue|Graveyard]]
 
@@ -80,7 +82,7 @@ and I swallowed into the murky abyss, with those eyes staring at me as my consci
 
 @@.yukari;Settle down Yoshika. I'm just here for a little visit.@@
 
-Disoriented, I slowly oriented myself and saw that blond woman petting the head of a zombie.
+Disoriented, you slowly oriented yourself and saw that blond woman petting the head of a zombie.
 
 @@.yoshika;Who's that? Is he my supper?@@
 
@@ -90,14 +92,14 @@ Disoriented, I slowly oriented myself and saw that blond woman petting the head 
 
 @@.yukari; That's why this human comes in.@@
 
-The blond threw a tool to me. I leapt out of the way as it hit the ground with a clang. \
-Picking it up under the moonlight of the full moon, I could see that it is a shovel.
+The blonde threw a tool to you. You leapt out of the way as it hit the ground with a clang. \
+Picking it up under the moonlight of the full moon, you could see that it is a shovel.
 
 @@.yukari;It's time for you to dig up some food. I wonder how fermented humans taste like.@@ 
 
 The woman licked her lips with her tongue.
 
-I shuddered.
+You shuddered.
 
 @@.center;
 [[Resist|Graveyard Resistance]]
@@ -120,11 +122,9 @@ Resting her chin against her hands as her lower half sat in the void, she smiled
 <<return>>
 
 :: Graveyard Digging
-<<set _graveNumber = 12>>
-<<set $graveArray = []>>
-
-
 <<nobr>>
+    <<set _graveNumber = 12>>
+    <<set $graveArray = []>>
 	<<set _grid = '<div class="grid-container">'>>
 	<<for _i = 0; _i < _graveNumber; _i++>>
             <<set _grid += '<div class="grid-item">'>>
@@ -138,7 +138,7 @@ Resting her chin against her hands as her lower half sat in the void, she smiled
 	<<set _grid += '</div>'>>
 <</nobr>>
 
-_grid
+<<= _grid >>
 
 :: Grave
 @@.center;
@@ -146,13 +146,58 @@ _grid
 
 Here lies $selectedGrave.name
 
-Beside the grave is a $selectedGrave.decoration
+Beside the grave is $selectedGrave.decoration
 
 Engraved on it is $selectedGrave.engraving
 
 Noticeably, the soil is $selectedGrave.feature
 
+<<nobr>>
+<<ctp "Dig">>
+  <<set _ctp to CTP.getCTP("Dig")>>
+    Dirt is dirt. 
+<<ctpHead>>
+  <<if _ctp.log.index > 0>>
+    <<linkreplace Cover t8n>>
+        <<ctpBack "Dig">>
+    <</linkreplace>>
+  <</if>>
+<<ctpNext clear>>
+    A small hole is dug.
+<<ctpNext clear>>
+    The hole is bigger.
+<<ctpNext clear>>
+    It's about 1 metre deep. 
+<<ctpNext clear>>
+    Two metres???
+<<ctpNext clear>>
+    Thunk! The shovel seems to have hit something!!!
+<<ctpNext clear>>
+    Body obtained! Flies greeted your nose as soon as the casket was opened. Inside sat the rotten remains of a once alive individual.
+<<ctpTail>>
+  <<if _ctp.log.index lt _ctp.stack.length - 1>>
+    <<linkreplace Dig t8n>>
+        <<ctpAdvance "Dig">>
+    <</linkreplace>>
+    <<else>>
+        <<if $firstDig>>
+            <br>
+            @@.yukari;I guess you're not that incompetent after all.@@
+            <br>
+            <br>
+            The woman stepped beside you, and peered inside the casket which you opened by busting the lock.
+            <br>
+            <br>
+            She seemed to be in deep thought, but as you turn to face her, she snapped out of it.
+            <br>
+            <br>
+            @@.yukari;Very good then. Keep digging. Get as many as you can while the Full Moon is strong@@
+            <<set $firstDig = false>>
+        <</if>>
+  <</if>>
+<</ctp>>
 @@
+<</nobr>>
 
 <<return>>
 
