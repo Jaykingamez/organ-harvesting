@@ -1,0 +1,84 @@
+:: DateTime [widget]
+/*
+	Date & Time Widget Setup
+*/
+<<set
+	window.GameDays to [
+		"Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"
+	];
+	window.GameMonths to [
+		"Jan", "Feb", "Mar", "Apr", "May", "Jun",
+		"Jul", "Aug", "Sep", "Oct", "Nov", "Dec"
+	];
+
+	/*
+		Below we have to use the multi-parameter version of the Date
+		constructor, rather than the date string version, because the
+		date string version treats a missing timezone offset as UTC.
+		While there are ways to determine players' timezone offsets,
+		so they could be added to a date string, it's more convenient
+		simply to use the multi-parameter constructor.
+
+		The point of this is so that you can simply initialize the game
+		world clock to whatever date and time you wish without having to
+		worry about the players' timezone offsets, while still ensuring
+		that they all see the same game world dates and times.
+	*/
+	/* params: year , month(0-based) , day , hour(24H) , minute [, second ] */
+	$gameDate to new Date(2015, 2, 17, 3, 24); /* e.g. Mar 17, 2015 03:24 */
+>>
+
+
+/*
+	Date & Time Advancement Widget Definitions
+*/
+/* Adds the specified number of minutes. */
+<<widget "addmins">>\
+<<run $gameDate.setMinutes($gameDate.getMinutes() + $args[0])>>\
+<</widget>>
+
+/* Adds the specified number of hours. */
+<<widget "addhours">>\
+<<run $gameDate.setHours($gameDate.getHours() + $args[0])>>\
+<</widget>>
+
+/* Adds the specified number of days. */
+<<widget "adddays">>\
+<<run $gameDate.setHours($gameDate.getHours() + $args[0] * 24)>>\
+<</widget>>
+
+
+/*
+	Date & Time Printing Widget Definitions
+*/
+/* Prints the current date ("{weekday} {month} {day}, {year}"). */
+<<widget "date">>\
+<<print String.format("{0} {1} {2}, {3}",
+	GameDays[$gameDate.getDay()],
+	GameMonths[$gameDate.getMonth()],
+	$gameDate.getDate(),
+	$gameDate.getFullYear()
+)>>\
+<</widget>>
+
+/* Prints the current time (12H). */
+<<widget "time12hr">>\
+<<if $gameDate.getHours() eq 0>>\
+12\
+<<elseif $gameDate.getHours() gt 12>>\
+<<print $gameDate.getHours() - 12>>\
+<<else>>\
+<<print $gameDate.getHours()>>\
+<</if>>:\
+<<if $gameDate.getMinutes() lt 10>>0<</if>><<print $gameDate.getMinutes()>> \
+<<if $gameDate.getHours() gte 12>>PM<<else>>AM<</if>>\
+<</widget>>
+
+/* Prints the current time (24H). */
+<<widget "time24hr">>\
+<<if $gameDate.getHours() lt 10>>0<</if>><<print $gameDate.getHours()>>:\
+<<if $gameDate.getMinutes() lt 10>>0<</if>><<print $gameDate.getMinutes()>>\
+<</widget>>
+
+/* Prints the current date and time (12H). */
+<<widget "datetime">><<date>> <<time12hr>> (<<time24hr>>)<</widget>>
