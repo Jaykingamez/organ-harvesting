@@ -1,0 +1,30 @@
+:: My Widgets [widget, nobr]
+<<widget "pronoun">>
+	<<if $player.gender eq "male">>
+		he
+	<<elseif $player.gender eq "female">>
+		she
+	<<else>>
+		$player.gender
+	<</if>>
+<</widget>>
+
+<<widget "graveyard" >>
+    <<set _graveNumber = 12>> 
+    <<set $graveArray = []>> 
+    <div class="grid-container">
+        <<for _i = 0; _i < _graveNumber; _i++>> 
+            <<capture _grave>>
+                <<set _grave = setup.Grave.generator()>>
+                <<run $graveArray.push(_grave)>>
+                <div class="grid-item">
+                    <<link _grave.name "Grave">>
+                        <<set $selectedGrave = _grave>>
+                    <</link>>
+                </div>
+            <</capture>>
+        <</for>> 
+    </div>
+<</widget>>
+
+

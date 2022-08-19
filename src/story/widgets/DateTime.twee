@@ -1,4 +1,4 @@
-:: DateTime [widget]
+:: DateTime [widget, nobr]
 /*
 	Date & Time Widget Setup
 */
