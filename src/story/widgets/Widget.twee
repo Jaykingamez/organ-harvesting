@@ -1,4 +1,4 @@
-:: My Widgets [widget, nobr]
+:: Widget [widget nobr]
 <<widget "pronoun">>
 	<<if $player.gender eq "male">>
 		he
@@ -18,9 +18,7 @@
                 <<set _grave = setup.Grave.generator()>>
                 <<run $graveArray.push(_grave)>>
                 <div class="grid-item">
-                    <<link _grave.name "Grave">>
-                        <<set $selectedGrave = _grave>>
-                    <</link>>
+                    [[_grave.name|Grave][$selectedGrave = _grave]]
                 </div>
             <</capture>>
         <</for>> 
