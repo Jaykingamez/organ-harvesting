@@ -1,5 +1,6 @@
 import { uniqueNamesGenerator, adjectives, countries, names, languages } from 'unique-names-generator';
 import graveData from '../data/grave/graveData';
+import TwineClass from './twineClass';
 
 export interface Tomb {
     name: string;   // Tomb 1, 2, 3?
@@ -8,7 +9,7 @@ export interface Tomb {
     feature: string; // Dirt is loose (Graverobbed before)
 }
 
-export class Grave implements Tomb {
+export class Grave extends TwineClass {
     private _name!: string;   
     private _decoration!: string; 
     private _engraving!: string;
@@ -19,24 +20,11 @@ export class Grave implements Tomb {
     private static _featureArray: string[];
 
     constructor({name, decoration, engraving, feature}: Tomb){
+        super();
         this.name = name;
         this.decoration = decoration;
         this.engraving = engraving;
         this.feature = feature;
-    }
-
-    clone(){
-        return new Grave(this);
-    }
-
-    // Return a code string that will create a new instance containing our
-	// own data.
-	//
-	// NOTE: Supplying `this` directly as the `reviveData` parameter to the
-	// `JSON.reviveWrapper()` call will trigger out of control recursion in
-	// the serializer, so we must pass it a clone of our own data instead.
-    toJson(){
-	    return JSON.reviveWrapper('new setup.Grave($ReviveData$)', clone(this));
     }
 
     public static generator(){

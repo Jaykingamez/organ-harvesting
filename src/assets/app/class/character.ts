@@ -1,3 +1,5 @@
+import TwineClass from './twineClass';
+
 export interface Character {
     name: string;
     race: string; // Human/Youkai others?
@@ -5,30 +7,17 @@ export interface Character {
 
 }
 
-export class Npc implements Character{
+export class Npc extends TwineClass{
 
     private _name!: string;
     private _race!: string;
     private _gender!: string;
 
     constructor({name, race, gender}: Character){
+        super();
         this.name = name;
         this.race = race;
         this.gender = gender;
-    }
-    
-    clone(){
-        return new Npc(this);
-    }
-
-    // Return a code string that will create a new instance containing our
-	// own data.
-	//
-	// NOTE: Supplying `this` directly as the `reviveData` parameter to the
-	// `JSON.reviveWrapper()` call will trigger out of control recursion in
-	// the serializer, so we must pass it a clone of our own data instead.
-    toJson(){
-	    return JSON.reviveWrapper('new setup.Npc($ReviveData$)', clone(this));
     }
 
     public get name(): string {
@@ -54,18 +43,5 @@ export class Npc implements Character{
 
 export class Player extends Npc {
 
-    clone(){
-        return new Player(this);
-    }
-
-    // Return a code string that will create a new instance containing our
-	// own data.
-	//
-	// NOTE: Supplying `this` directly as the `reviveData` parameter to the
-	// `JSON.reviveWrapper()` call will trigger out of control recursion in
-	// the serializer, so we must pass it a clone of our own data instead.
-    toJson(){
-	    return JSON.reviveWrapper('new setup.Player($ReviveData$)', clone(this));
-    }
 }
 
