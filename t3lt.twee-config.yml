@@ -1,11 +1,17 @@
 sugarcube-2:
-    macros:
-        liveblock:
-            name: liveblock
-            container: true
-        update:
-            name: update
-            container: false
-        pronoun:
-            name: pronoun
-            container: false
+  macros:
+    liveblock:
+      name: liveblock
+      container: true
+    update:
+      name: update
+      container: false
+    pronoun:
+      name: pronoun
+      container: false
+    graveyard:
+      name: graveyard
+    date:
+      name: date
+    time24hr:
+      name: time24hr
