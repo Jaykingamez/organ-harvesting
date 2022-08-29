@@ -6,6 +6,8 @@ interface Character {
     race: string; // Human/Youkai others?
     gender: string; // Male/Female others?
 
+    body: Body;
+
 }
 
 interface BodyInterface {
@@ -46,10 +48,30 @@ interface DeadBodyInterface extends BodyInterface {
     decompositionValue: number; // 0 - 100, affects value, 100 is completely bones;
 }
 
+function boolOrganGenerator(): boolean[]{
+    // 80% - both organs, 10% - 1 organs, 10% - no organs
+    let result = random(1, 100);
+    let organs = [true, true]; // has both eyes
+    if (result > 80){
+        if (result <= 85){
+            organs = [false, true] // lacks left organ
+        } else if (result <= 90){
+            organs = [true, false] // lacks right organ
+        } else if(result <= 100){
+            organs = [false, false] // lacks both organs
+        }
+    }
+    return organs;
+}
 
 // Return status number
 function statusGenerator(): number{
     return random(0, 100);
+}
+
+function trueOrFalse(): boolean {
+    let result = random(0, 1);
+    return result === 0 ? false: true;
 }
 
 export class AliveBody extends TwineClass {
@@ -104,24 +126,24 @@ export class AliveBody extends TwineClass {
         this.mental = mental;
     }
 
-    public generator(): AliveBody{
+    public randomGenerator(): AliveBody{
         let alive = true;
         let skin = 3600; // 3600 grams
 
-        let lungArray = AliveBody.boolOrganGenerator();
-        let kidneyArray = AliveBody.boolOrganGenerator();
+        let lungArray = boolOrganGenerator();
+        let kidneyArray = boolOrganGenerator();
 
         let heart = true;
         let liver = true;
         let brain = true;
         
-        let eyeArray = AliveBody.boolOrganGenerator();
-        let armArray = AliveBody.boolOrganGenerator();
-        let legArray = AliveBody.boolOrganGenerator();
-        let earArray = AliveBody.boolOrganGenerator();
+        let eyeArray = boolOrganGenerator();
+        let armArray = boolOrganGenerator();
+        let legArray = boolOrganGenerator();
+        let earArray = boolOrganGenerator();
 
         let bloodVolume = AliveBody.bloodGenerator();
-        let anesthesia =  AliveBody.trueOrFalse();
+        let anesthesia =  trueOrFalse();
         let pain = statusGenerator();
         let mental = statusGenerator();
 
@@ -146,31 +168,51 @@ export class AliveBody extends TwineClass {
            });
     }
 
-    private static boolOrganGenerator(): boolean[]{
-        // 80% - both organs, 10% - 1 organs, 10% - no organs
-        let result = random(1, 100);
-        let organs = [true, true]; // has both eyes
-        if (result > 80){
-            if (result <= 85){
-                organs = [false, true] // lacks left organ
-            } else if (result <= 90){
-                organs = [true, false] // lacks right organ
-            } else if(result <= 100){
-                organs = [false, false] // lacks both organs
-            }
-        }
-        return organs;
+    public perfectHealthGenerator(){
+        let alive = true;
+        let skin = 3600; // 3600 grams
+
+        let lungArray = [true, true];
+        let kidneyArray = [true, true];
+
+        let heart = true;
+        let liver = true;
+        let brain = true;
+        
+        let eyeArray = [true, true];
+        let armArray = [true, true];
+        let legArray = [true, true];
+        let earArray = [true, true];
+
+        let bloodVolume = AliveBody.bloodGenerator();
+        let anesthesia =  false;
+        let pain = 0;
+        let mental = 0;
+
+
+
+        return new AliveBody({
+            deadOrAlive: alive, 
+            skin: skin, 
+            lungArray: lungArray,
+            kidneyArray: kidneyArray,
+            heart: heart,
+            liver: liver,
+            brain: brain,
+            eyeArray: eyeArray,
+            armArray: armArray,
+            legArray: legArray,
+            earArray: earArray,
+            anesthesia: anesthesia,
+            pain: pain,
+            mental: mental,
+            bloodVolume: bloodVolume
+           });
     }
 
     private static bloodGenerator(): number {
         return random(4500, 5700); // in millimeters
     }
-
-    private static trueOrFalse(): boolean {
-        let result = random(0, 1);
-        return result === 0 ? false: true;
-    }
-    
 }
 
 export class DeadBody extends TwineClass implements DeadBodyInterface {
@@ -184,12 +226,14 @@ export class Npc extends TwineClass{
     private _name!: string;
     private _race!: string;
     private _gender!: string;
+    private _body!: Body;
 
-    constructor({name, race, gender}: Character){
+    constructor({name, race, gender, body}: Character){
         super();
         this.name = name;
         this.race = race;
         this.gender = gender;
+        this.body = body;
     }
 
     public get name(): string {
@@ -209,6 +253,12 @@ export class Npc extends TwineClass{
     }
     public set gender(value: string) {
         this._gender = value;
+    }
+    public get body(): Body {
+        return this._body;
+    }
+    public set body(value: Body) {
+        this._body = value;
     }
 
 }
