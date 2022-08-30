@@ -249,7 +249,7 @@ export class DeadBody extends TwineClass implements DeadBodyInterface {
     }
 
 
-    public generator(): DeadBody{
+    public static generator(): DeadBody{
         let alive = false;
         let skin = DeadBody.skinGenerator(); 
 
@@ -265,7 +265,7 @@ export class DeadBody extends TwineClass implements DeadBodyInterface {
         let legArray = boolOrganGenerator();
         let earArray = boolOrganGenerator();
 
-        let decompositionValue =  statusGenerator();
+        let decompositionValue = statusGenerator();
 
         return new DeadBody({
             deadOrAlive: alive, 
