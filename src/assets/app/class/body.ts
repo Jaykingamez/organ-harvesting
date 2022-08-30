@@ -116,7 +116,7 @@ export class AliveBody extends TwineClass {
         this.mental = mental;
     }
 
-    public randomGenerator(): AliveBody{
+    public static randomGenerator(): AliveBody{
         let alive = true;
         let skin = 3600; // 3600 grams
 
@@ -156,7 +156,7 @@ export class AliveBody extends TwineClass {
            });
     }
 
-    public perfectHealthGenerator(){
+    public static perfectHealthGenerator(){
         let alive = true;
         let skin = 3600; // 3600 grams
 
