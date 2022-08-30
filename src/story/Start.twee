@@ -123,22 +123,7 @@ Resting her chin against her hands as her lower half sat in the void, she smiled
 
 :: Graveyard Digging
 
-<<nobr>>
-	<<set _graveCount = 12>>
-	<<set $graveArray = []>>
-	<div class="grid-container">
-	<<for _i = 0; _i < _graveCount; _i++>>
-		<div class="grid-item">
-		<<capture _i>>
-            <<run $graveArray.push(setup.Grave.generator())>>
-			<<link `$graveArray.last().name` "Grave">>
-				<<set $selectedGrave = $graveArray[_i]>>
-			<</link>>
-		<</capture>>
-		</div>
-	<</for>>
-	</div>
-<</nobr>>
+<<graveyard 12>>
 
 :: Grave
 @@.center;
