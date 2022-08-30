@@ -25,5 +25,7 @@ sugarcube-2:
       name: addhours
     adddays:
       name: adddays
+    updatebar:
+      name: updatebar
     
       
