@@ -1,9 +1,8 @@
 :: StoryDisplayTitle [nobr]
 /* Used for titlebar */
-<<if State.variables.player.name === undefined>>
-    <<= State.variables.player.name>>
-<<else>>
-    Where are you?
-<</if>>
+Organ Harvesting
 
-:: StoryBanner
+:: StoryCaption
+<<date>>
+
+<<time24hr>>
