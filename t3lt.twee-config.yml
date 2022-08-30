@@ -13,5 +13,17 @@ sugarcube-2:
       name: graveyard
     date:
       name: date
+    time12h:
+      name: time12h
     time24hr:
       name: time24hr
+    datetime:
+      name: datetime
+    addmins:
+      name: addmins
+    addhours:
+      name: addhours
+    adddays:
+      name: adddays
+    
+      
