@@ -167,6 +167,8 @@ Noticeably, the soil is $selectedGrave.feature
         <<ctpAdvance "Dig">>
     <</linkreplace>>
     <<else>>
+        <<set _deadBody = setup.DeadBody.generator()>>
+
         <<if $firstDig>>
             <br>
             @@.yukari;I guess you're not that incompetent after all.@@
