@@ -1,4 +1,4 @@
-:: Menu [widget nobr]
+:: Menu Widget [widget nobr]
 
 <<widget "updatebar">>
     <<silently>>
