@@ -142,6 +142,8 @@ Noticeably, the soil is $selectedGrave.feature
 <<ctpHead>>
   <<if _ctp.log.index > 0>>
     <<linkreplace Cover t8n>>
+        <<addmins 30>>
+        <<updatebar>>
         <<ctpBack "Dig">>
     <</linkreplace>>
   <</if>>
@@ -160,6 +162,8 @@ Noticeably, the soil is $selectedGrave.feature
 <<ctpTail>>
   <<if _ctp.log.index lt _ctp.stack.length - 1>>
     <<linkreplace Dig t8n>>
+        <<addmins 15>>
+        <<updatebar>>
         <<ctpAdvance "Dig">>
     <</linkreplace>>
     <<else>>
