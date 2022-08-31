@@ -1,1 +1,20 @@
-:: Storage [nobr]
+:: Storage
+
+The storage room is a strange place. Reminiscent of your old world's hospitals, it lacked the constant smell of sceptic wafting in the air. 
+It even was cool to the touch. It could fool anyone with such an image, except for the glaring hatch in the middle of the room. 
+
+If you have any... patients, they stay in their beds, glaring daggers at you, their all so wonderful saviour. The ones which you have used your breaking methods on
+could only look away, hoping to not suffer from your treatment. 
+
+Maestro, choose your instrument, and let the music play.
+
+[[Look around the "Hospital"|Alive Storage]]
+
+[[Look under the hatch|Dead Storage]]
+
+:: Alive Storage
+<<storage "alive">>
+
+
+:: Dead Storage
+<<storage "dead">>
