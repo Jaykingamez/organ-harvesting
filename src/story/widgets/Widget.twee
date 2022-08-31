@@ -10,7 +10,7 @@
 <</widget>>
 
 <<widget "graveyard" >>
-    <<set _graveNumber = 12>> 
+    <<set _graveNumber = $args[0]>> 
     <<set $graveArray = []>> 
     <div class="grid-container">
         <<for _i = 0; _i < _graveNumber; _i++>> 
@@ -19,6 +19,22 @@
                 <<run $graveArray.push(_grave)>>
                 <div class="grid-item">
                     [[_grave.name|Grave][$selectedGrave = _grave]]
+                </div>
+            <</capture>>
+        <</for>> 
+    </div>
+<</widget>>
+
+<<widget "storage" >>
+    <div class="grid-container">
+        <<set _npcArray = $args[0]==="alive"? $player.aliveBodyStorage : $player.deadBodyStorage >>
+        <<for _i = 0; _i < _npcArray.length; _i++>> 
+            <<capture _npc>>
+                <<set _npc = _npcArray[_i]>>
+                <div class="grid-item">
+                    <<= _npc>>
+                    <<= _npc.name>>
+                    [[_npc.name|Inspection][$selectedStorageNpc = _npc]]
                 </div>
             <</capture>>
         <</for>> 
