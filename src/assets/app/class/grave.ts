@@ -10,10 +10,10 @@ export interface Tomb {
 }
 
 export class Grave extends TwineClass {
-    private _name!: string;   
-    private _decoration!: string; 
-    private _engraving!: string;
-    private _feature!: string;
+    public name: string;   
+    public decoration: string; 
+    public engraving: string;
+    public feature: string;
 
     private static _nameArray: string[];
     private static _decorationArray: string[];    
@@ -64,35 +64,6 @@ export class Grave extends TwineClass {
             dictionaries: [Grave.featureArray]
         });
         return tombFeature;
-    }
-
-
-    public get name(): string {
-        return this._name;
-    }
-    public set name(value: string) {
-        this._name = value;
-    }
-
-    public get decoration(): string {
-        return this._decoration;
-    }
-    public set decoration(value: string) {
-        this._decoration = value;
-    }
-
-    public get engraving(): string {
-        return this._engraving;
-    }
-    public set engraving(value: string) {
-        this._engraving = value;
-    }
-
-    public get feature(): string {
-        return this._feature;
-    }
-    public set feature(value: string) {
-        this._feature = value;
     }
 
     private static get nameArray(): string[] {
