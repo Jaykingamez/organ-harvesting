@@ -27,5 +27,7 @@ sugarcube-2:
       name: adddays
     updatebar:
       name: updatebar
+    storage:
+      name: storage
     
       
