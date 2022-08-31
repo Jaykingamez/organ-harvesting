@@ -2,7 +2,7 @@
 Organ Harvesting
 
 :: Start
-<<set $player = new setup.Player({name:"", race:"", gender:"", body: setup.AliveBody.perfectHealthGenerator()})>>
+<<set $player = new setup.Player({name:"", race:"human", gender:"", body: setup.AliveBody.perfectHealthGenerator()})>>
 
 An endless vortex of eyes staring appeared before you. Before you could even let out a shout, you were swallowed by the endlessly writhing doorway. 
 
@@ -167,7 +167,9 @@ Noticeably, the soil is $selectedGrave.feature
         <<ctpAdvance "Dig">>
     <</linkreplace>>
     <<else>>
+        /*Add deadBody to storage */
         <<set _deadBody = setup.DeadBody.generator()>>
+        <<run $player.deadBodyStorage.push(_deadBody)>>
 
         <<if $firstDig>>
             <br>
