@@ -27,13 +27,11 @@
 
 <<widget "storage" >>
     <div class="grid-container">
-        <<set _npcArray = $args[0]==="alive"? $player.aliveBodyStorage : $player.deadBodyStorage >>
+        <<set _npcArray = $args[0]==="alive" ? $player.aliveBodyStorage : $player.deadBodyStorage >>
         <<for _i = 0; _i < _npcArray.length; _i++>> 
             <<capture _npc>>
                 <<set _npc = _npcArray[_i]>>
                 <div class="grid-item">
-                    <<= _npc>>
-                    <<= _npc.name>>
                     [[_npc.name|Inspection][$selectedStorageNpc = _npc]]
                 </div>
             <</capture>>
