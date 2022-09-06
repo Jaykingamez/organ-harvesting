@@ -168,7 +168,7 @@ Noticeably, the soil is $selectedGrave.feature
     <</linkreplace>>
     <<else>>
         /*Add deadBody to storage */
-        <<set _deadBody = setup.DeadBody.generator()>>
+        <<set _deadBody = setup.Npc.generateDeadNpc()>>
         <<run $player.deadBodyStorage.push(_deadBody)>>
 
         <<if $firstDig>>
