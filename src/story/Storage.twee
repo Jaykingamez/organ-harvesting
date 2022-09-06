@@ -12,9 +12,15 @@ Maestro, choose your instrument, and let the music play.
 
 [[Look under the hatch|Dead Storage]]
 
+<<return>>
+
 :: Alive Storage
 <<storage "alive">>
-
+<<return>>
 
 :: Dead Storage
 <<storage "dead">>
+<<return>>
+
+:: Inspection
+
