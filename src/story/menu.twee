@@ -10,9 +10,6 @@ Organ Harvesting
 
 <<time24hr>>
 
-/* Store bodies :) */
-[[Storage]]
-/* Prepare the food */
-[[Preparation]]
-/* Deliver the goods  */
-[[Requests]]
+<<if $firstDig === true>>
+    [[Home]]
+<</if>>

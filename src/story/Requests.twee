@@ -1,1 +1,23 @@
 :: Requests [nobr]
+
+The building has a backroom with flickering lights and unrecognized faces awaiting outside. 
+
+"Hey, you're the new chef, right?" A cute little fairy with blue hair called out. 
+
+Remembering Yukari's previous words, you nodded.
+
+"Great! The name's Cirno and I would like to try some human meat!"
+
+Morality is relative, and you should probably stop considering the consequences of feeding a young child human meat. 
+You have a job to do, and you might be the food if you fail to do it. 
+
+/* Display all organs */
+<div id="organCollection">
+</div>
+
+
+<<script>>
+    for (let [key, value] of Object.entries(State.variables.player.organCollection)) {
+        document.getElementById("organCollection").innerHTML = `${key} count: ${value}`;
+    }
+<</script>>

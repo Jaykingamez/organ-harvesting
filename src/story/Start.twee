@@ -126,6 +126,8 @@ Resting her chin against her hands as her lower half sat in the void, she smiled
 <<graveyard 12>>
 
 :: Grave
+
+<<set $timeToDig = 8*60>>
 @@.center;
 Here lies $selectedGrave.name
 
@@ -143,9 +145,12 @@ Noticeably, the soil is $selectedGrave.feature
   <<if _ctp.log.index > 0>>
     <<linkreplace Cover t8n>>
         <<addmins 30>>
+        <<set $timeToDig -= 30>>
         <<updatebar>>
         <<ctpBack "Dig">>
     <</linkreplace>>
+    <<elseif $timeToDig <= 0 >>
+        [[Home]]
   <</if>>
 <<ctpNext clear>>
     A small hole is dug.
@@ -162,10 +167,13 @@ Noticeably, the soil is $selectedGrave.feature
 <<ctpTail>>
   <<if _ctp.log.index lt _ctp.stack.length - 1>>
     <<linkreplace Dig t8n>>
-        <<addmins 15>>
+        <<addmins 60>>
+        <<set $timeToDig -= 60>>
         <<updatebar>>
         <<ctpAdvance "Dig">>
     <</linkreplace>>
+    <<elseif $timeToDig <= 0 >>
+        [[Home]]
     <<else>>
         /*Add deadBody to storage */
         <<set _deadBody = setup.Npc.generateDeadNpc()>>
@@ -191,6 +199,11 @@ Noticeably, the soil is $selectedGrave.feature
 <</nobr>>
 
 <<return>>
+
+
+
+
+
 
 
 
