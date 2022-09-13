@@ -51,5 +51,16 @@ export class Player extends Npc {
     public deadBodyStorage: Npc[] = [];
     public aliveBodyStorage: Npc[] = [];
 
+    public organCollection: { [key: string]: number } = { "heart": 0, "liver": 0, "brain": 0, "eye": 0, "arm": 0 , "leg": 0, "ear": 0, "lung": 0, "kidney": 0};
+    public bloodCollected: number = 0;
+    public skinCollected: number = 0;
+
+    public anesthesiaCollected: number = 0;
+
+
+    
+
+    
+
 }
 
