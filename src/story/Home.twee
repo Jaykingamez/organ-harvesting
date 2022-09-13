@@ -1,0 +1,40 @@
+:: Home
+<<if $firstDig>>
+@@.yukari;
+    This is home, truly, where I know I must be. 
+    Where my dreams wait for me.
+    Where that river always flows...
+
+Strange, the river is missing. Some Youkai must have dammed the upstream. Nonetheless, this is where you can practice your craft.
+@@
+
+"What craft?" You asked, as you heaved the sack of dead bodies.
+
+@@.yukari;
+Cut up the bodies and study them. I'm sure you'll need to know which is the liver, which is the heart, and how to remove such organs cleanly.
+@@
+
+"I'm gonna need some reference material," You said.
+
+Yukari handed over a medical journal. 
+
+@@.yukari;Take a look at the journal and refer to it to make your cuts. Since you're new, your first few customers will be forgiving. But don't expect the same forgiveness a few weeks down the road@@
+
+"What do you mean customers?" You clarified.
+
+@@.yukari;Other Youkai! We consume human meat to survive. But we are unable to consume them in the fashion that human chefs prepare them. We hope that you'll be able to remedy that situation.@@
+
+"So what am I? A chef, or a doctor?"
+
+@@.yukari;Whatever makes your conscience feels better. Nevertheless, I will be bringing... live food from time to time.@@
+
+The woman disappeared, and you're left holding the bag. 
+<</if>>
+
+
+/* Store bodies :) */
+[[Storage]]
+/* Prepare the food */
+[[Preparation]]
+/* Deliver the goods  */
+[[Requests]]
